@@ -1,0 +1,23 @@
+ {
+    type: 'tester',
+    module : 'tester'
+    action : 'tester',
+    groupTitle : 'tester',
+    groupIcon : 'fas fa-lg fa-table comp-data',
+    title : 'tester Handler',
+    
+    icon : 'fas fa-lg fa-table comp-data',
+    dataPickObject: true,
+    dataScheme: [
+    {name: 'status', type: 'text'}
+  ],
+    properties : [
+    {
+      group: 'tester',
+      variables: [
+          { name: 'name', optionName: 'name', title: 'name', type: 'text', required: true, defaultValue: 'xxxx', help: 'Help text'},
+          { name: 'output', optionName: 'output', title: 'Output', type: 'boolean', defaultValue: false }
+      ]
+    }
+  ]
+ }

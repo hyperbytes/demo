@@ -1,0 +1,22 @@
+ {
+    type: 'ipn',
+    module : 'ipn'
+    action : 'ipn',
+    groupTitle : 'PayPal Extensions',
+    groupIcon : 'fas fa-lg fa-table comp-data',
+    title : 'IPN Handler',
+    icon : 'fas fa-lg fa-table comp-data ',
+    dataPickObject: true,
+    dataScheme: [
+    {name: 'status', type: 'text'}
+  ],
+    properties : [
+    {
+      group: 'ipn',
+      variables: [
+          {name: 'name', optionName: 'name', title: 'name', type: 'text', required: true, defaultValue: 'ipnhandshake', help: 'Help text'},
+                { name: 'output', optionName: 'output', title: 'Output', type: 'boolean', defaultValue: false }
+      ]
+    }
+  ]
+ }

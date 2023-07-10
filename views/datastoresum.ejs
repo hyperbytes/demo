@@ -1,0 +1,12 @@
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="datastoresum" appConnect="local" components="{dmxDatastore:{},dmxFormatter:{}}" -->
+<meta name="ac:route" content="/datastoresum">
+<dmx-datastore id="datastore1"></dmx-datastore>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <p>
+                <button id="btn1" class="btn" dmx-on:click="">Button</button>Sum: {{datastore1.data.sum(`price`)}}
+            </p>
+        </div>
+    </div>
+</div>

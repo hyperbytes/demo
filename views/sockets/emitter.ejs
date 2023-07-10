@@ -1,0 +1,12 @@
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="emitter" appConnect="local" components="{dmxSockets:{},dmxNotifications:{}}" -->
+<meta name="ac:route" content="/sockets/emitter">
+<dmx-socket id="socket1" dmx-on:message.message="notifies1.info($event.message_text)"></dmx-socket>
+<dmx-notifications id="notifies1" closable="true" timeout="2000"></dmx-notifications>
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+      <h1>Sockets Demo</h1>
+      <p>Meetup sockets demo</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,131 @@
+{
+  "meta": {
+    "$_POST": [
+      {
+        "type": "text",
+        "name": "email"
+      },
+      {
+        "type": "text",
+        "name": "password"
+      },
+      {
+        "type": "number",
+        "name": "remember"
+      }
+    ]
+  },
+  "exec": {
+    "steps": [
+      {
+        "name": "identity",
+        "module": "auth",
+        "action": "login",
+        "options": {
+          "provider": "simple",
+          "username": "{{$_POST.email}}"
+        },
+        "output": true,
+        "meta": []
+      },
+      {
+        "name": "identity1",
+        "module": "auth",
+        "action": "identify",
+        "options": {
+          "provider": "simple"
+        },
+        "output": true,
+        "meta": []
+      },
+      {
+        "name": "query",
+        "module": "dbconnector",
+        "action": "single",
+        "options": {
+          "connection": "db",
+          "sql": {
+            "type": "SELECT",
+            "columns": [
+              {
+                "table": "role",
+                "column": "role"
+              }
+            ],
+            "table": {
+              "name": "users"
+            },
+            "primary": "user_id",
+            "joins": [
+              {
+                "table": "role",
+                "column": "*",
+                "type": "INNER",
+                "clauses": {
+                  "condition": "AND",
+                  "rules": [
+                    {
+                      "table": "role",
+                      "column": "user_id",
+                      "operator": "equal",
+                      "value": {
+                        "table": "users",
+                        "column": "user_id"
+                      },
+                      "operation": "="
+                    }
+                  ]
+                },
+                "primary": "role_id"
+              }
+            ],
+            "wheres": {
+              "condition": "AND",
+              "rules": [
+                {
+                  "id": "users.user_id",
+                  "field": "users.user_id",
+                  "type": "double",
+                  "operator": "equal",
+                  "value": "{{identity1}}",
+                  "data": {
+                    "table": "users",
+                    "column": "user_id",
+                    "type": "number",
+                    "columnObj": {
+                      "type": "increments",
+                      "primary": true,
+                      "unique": false,
+                      "nullable": false,
+                      "name": "user_id"
+                    }
+                  },
+                  "operation": "="
+                }
+              ],
+              "conditional": null,
+              "valid": true
+            },
+            "query": "SELECT role.role\nFROM users\nINNER JOIN role ON (role.user_id = users.user_id)\nWHERE users.user_id = :P1 /* {{identity1}} */",
+            "params": [
+              {
+                "operator": "equal",
+                "type": "expression",
+                "name": ":P1",
+                "value": "{{identity1}}"
+              }
+            ]
+          }
+        },
+        "output": true,
+        "meta": [
+          {
+            "type": "text",
+            "name": "role"
+          }
+        ],
+        "outputType": "object"
+      }
+    ]
+  }
+}

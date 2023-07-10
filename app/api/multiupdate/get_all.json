@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "$_GET": [
+      {
+        "type": "text",
+        "name": "sort"
+      },
+      {
+        "type": "text",
+        "name": "dir"
+      }
+    ]
+  },
+  "exec": {
+    "steps": {
+      "name": "query",
+      "module": "dbconnector",
+      "action": "select",
+      "options": {
+        "connection": "db",
+        "sql": {
+          "type": "SELECT",
+          "columns": [
+            {
+              "table": "simpleusers",
+              "column": "username"
+            },
+            {
+              "table": "simpleusers",
+              "column": "id"
+            },
+            {
+              "table": "simpleusers",
+              "column": "password"
+            },
+            {
+              "table": "simpleusers",
+              "column": "role"
+            }
+          ],
+          "table": {
+            "name": "simpleusers"
+          },
+          "primary": "id",
+          "joins": [],
+          "sub": {
+            "children": {
+              "type": "SELECT",
+              "table": {
+                "name": "simpleuser_children",
+                "alias": "children"
+              },
+              "key": "simpleuser_id",
+              "columns": [
+                {
+                  "table": "children",
+                  "column": "child_id"
+                },
+                {
+                  "table": "children",
+                  "column": "name"
+                }
+              ],
+              "primary": "child_id",
+              "joins": [],
+              "query": "SELECT child_id, name\nFROM simpleuser_children AS children",
+              "params": []
+            }
+          },
+          "query": "SELECT username, id, password, role\nFROM simpleusers",
+          "params": []
+        }
+      },
+      "output": true,
+      "meta": [
+        {
+          "type": "text",
+          "name": "username"
+        },
+        {
+          "type": "number",
+          "name": "id"
+        },
+        {
+          "type": "text",
+          "name": "password"
+        },
+        {
+          "type": "text",
+          "name": "role"
+        },
+        {
+          "name": "children",
+          "type": "array",
+          "sub": [
+            {
+              "type": "number",
+              "name": "child_id"
+            },
+            {
+              "type": "text",
+              "name": "name"
+            }
+          ]
+        }
+      ],
+      "outputType": "array"
+    }
+  }
+}

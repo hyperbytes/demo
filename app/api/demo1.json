@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "$_GET": [
+      {
+        "type": "text",
+        "name": "sort"
+      },
+      {
+        "type": "text",
+        "name": "dir"
+      }
+    ]
+  },
+  "exec": {
+    "steps": {
+      "name": "xdfsd",
+      "module": "checkcode",
+      "action": "gencode",
+      "options": {},
+      "meta": [
+        {
+          "name": "checkcode",
+          "type": "text"
+        }
+      ],
+      "output": true
+    }
+  }
+}

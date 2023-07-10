@@ -1,0 +1,14 @@
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="asdfasd" appConnect="local" components="{dmxFormRepeat:{}}" -->
+<meta name="ac:route" content="/asdfasd">
+<dmx-serverconnect id="serverconnect1" url="/api/inplace-demo/get_people"></dmx-serverconnect>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form id="form1">
+                <div is="dmx-form-repeat" id="formRepeat1" dmx-bind:items="1" dmx-repeat:repeat1="serverconnect1.data.query">
+                    <input id="text1" name="text1" type="text" class="form-control" dmx-bind:value="forename">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

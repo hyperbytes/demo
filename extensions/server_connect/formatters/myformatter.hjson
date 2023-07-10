@@ -1,0 +1,126 @@
+[
+  {
+    type: 'method_anonymise',
+    groupTitle : 'Custom Formatters',
+    groupIcon : 'fa fa-lg fa-key',
+    addTitle: 'Benjify',
+    title : 'Benjify',
+    icon : 'fa fa-lg fa-font',
+    state : 'opened',
+    help : 'convert number to cypher string',
+    properties : []
+  }
+
+{
+    type: 'method_includes',
+    groupTitle : 'Custom Formatters',
+    groupIcon : 'fa fa-lg fa-key',
+    addTitle: 'includes',
+    title : 'includes',
+    icon : 'fa fa-lg fa-font',
+    state : 'opened',
+    help : 'return if keyword found in string *from offset*',
+    properties : []
+    dataPickObject: true,
+ 
+
+  properties : [
+    {
+      group: 'Hello Properties',
+      variables: [
+        { name: 'actiontrigger', optionName: 'trigger', title: 'trigger', 
+          type: 'text', required: true, defaultValue: ''},
+        { name: 'actionoffset', optionName: 'offset', title: 'offset',
+          type: 'number', defaultValue: 0}
+      ]
+    }
+  ]
+}
+
+  {
+    type: 'method_soundex',
+    groupTitle : 'Custom Formatters',
+    groupIcon : 'fa fa-lg fa-key',
+    addTitle: 'Soundex',
+    title : 'Soundex',
+    icon : 'fa fa-lg fa-font',
+    state : 'opened',
+    help : 'convert string into soundex code eqivalent',
+    properties : [
+    {
+      group: 'Soundex Properties',
+      variables: [
+        { name: 'extend', optionName: 'extend', title: 'MySql Extended', 
+          type: 'boolean', required: false, defaultValue: 'false'},
+
+      ]
+    }
+  ]
+  }
+
+  {
+    type: 'method_difference',
+    groupTitle : 'Custom Formatters',
+    groupIcon : 'fa fa-lg fa-key',
+    addTitle: 'Soundex difference',
+    title : 'Soundex difference',
+    icon : 'fa fa-lg fa-font',
+    state : 'opened',
+    help : 'Difference between Soundex of two stings',
+    properties : [
+    {
+      group: 'difference Properties',
+      variables: [
+        { name: 'word2', optionName: 'word2', title: 'word2', 
+          type: 'text', required: true, defaultValue: ''},
+          {name: 'precoded', optionName: 'precoded', title: 'Input is Pre-soundex coded', 
+          type: 'boolean', required: false, defaultValue: 'false'}
+ 
+    
+      ]
+      
+    }
+     
+  ]
+  }
+  
+  {
+    type: 'method_getIcal',
+    groupTitle : 'Custom Formatters',
+    groupIcon : 'fas fa-lg fa-cube comp-flows',
+    title : 'getIcal',
+    icon : 'fas fa-lg fa-calendar comp-flows',
+    dataPickObject: true,
+    properties : [
+      {
+        group: 'getIcal Properties'
+        variables: [
+          { name: 'icspath', optionName: 'icspath', title: 'Path to .ics file', type: 'text', defaultValue: false }, 
+          { name: 'output', optionName: 'output', title: 'Output', type: 'boolean', defaultValue: false }
+        ]
+      }
+    ]
+  }
+
+  {
+    type: 'method_icaltojson',
+    groupTitle : 'Custom Formatters',
+    groupIcon : 'fas fa-lg fa-cube comp-flows',
+    title : 'icaltojson',
+    icon : 'fas fa-lg fa-calendar comp-flows',
+    dataPickObject: true,
+    properties : [
+      {
+        group: 'icaltojson Properties'
+        variables: [
+          { name: 'icspath', optionName: 'icspath', title: 'Path to local .ics file', type: 'text', defaultValue: false }, 
+          { name: 'output', optionName: 'output', title: 'Output', type: 'boolean', defaultValue: true }
+        ]
+      }
+    ]
+  }
+]
+
+
+
+

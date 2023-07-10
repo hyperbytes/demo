@@ -1,0 +1,27 @@
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="showall" appConnect="local" components="{dmxBootstrap5TableGenerator:{}}" -->
+<meta name="ac:route" content="/logindemo/showall">
+<dmx-serverconnect id="serverconnect1" url="/api/logindemo/tablejoin"></dmx-serverconnect>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover table-sm">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                        </tr>
+                    </thead>
+                    <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="serverconnect1.data.query" id="tableRepeat1">
+                        <tr>
+                            <td dmx-text="user_id"></td>
+                            <td dmx-text="email"></td>
+                            <td dmx-text="role"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

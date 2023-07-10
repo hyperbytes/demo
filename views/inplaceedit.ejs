@@ -1,0 +1,61 @@
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="inplaceedit" appConnect="local" components="{dmxBootstrap5TableGenerator:{},dmxBootstrap5Modal:{},dmxNotifications:{}}" -->
+<dmx-notifications id="notifies1"></dmx-notifications>
+<div class="modal" id="modal1" is="dmx-bs5-modal" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Book Title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>form here</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<meta name="ac:route" content="/inplaceedit">
+<dmx-serverconnect id="serverconnect1" url="/api/forerrordemo"></dmx-serverconnect>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="row"></th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="serverconnect1.data.query" id="tableRepeat2">
+                    <tr>
+                        <td><button id="btn1" class="btn" dmx-on:click="modal1.show()"><i class="fas fa-edit fa-lg"></i></button></td>
+                        <td tabindex="0">
+                            <form id="form1" is="dmx-serverconnect-form" method="post" action="/api/testdata/fordemo_bookupdate" autosubmit="true">
+                                <input id="INP_ID" name="id" type="hidden" class="form-control" dmx-bind:value="id">
+                                <input id="text2" name="name" type="text" class="form-control" dmx-bind:value="name" dmx-on:changed.debounce:1000="form1.submit()">
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row" is="dmx-repeat" id="repeat1" dmx-bind:repeat="serverconnect1.data.query" key="id">
+        <form id="form2" is="dmx-serverconnect-form" method="post" action="/api/testdata/fordemo_bookupdate">
+            <div class="row">
+                <div class="col">
+                    <input id="text1" name="name" type="text" class="form-control" dmx-bind:value="name" dmx-on:changed="text4.setValue(1)">
+                    <input id="text3" name="id" type="hidden" class="form-control" dmx-bind:value="id">
+                </div>
+                <div class="col">
+                    <input id="text4" name="toggle" type="hidden" class="form-control" value="0">
+                    <button id="btn2" class="btn btn-success" type="submit" dmx-hide="text4.value==0">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

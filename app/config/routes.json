@@ -1,0 +1,150 @@
+{
+  "routes": [
+    {
+      "path": "/",
+      "page": "index",
+      "routeType": "page",
+      "layout": "main"
+    },
+    {
+      "path": "/retyu",
+      "page": "retyu",
+      "layout": "main"
+    },
+    {
+      "path": "/responsivedemo",
+      "page": "responsivedemo",
+      "layout": "main"
+    },
+    {
+      "path": "/noappconnect",
+      "page": "noappconnect",
+      "layout": "main"
+    },
+    {
+      "path": "/resposive",
+      "page": "resposive",
+      "layout": "main"
+    },
+    {
+      "path": "/links",
+      "page": "links",
+      "layout": "main"
+    },
+    {
+      "path": "/fontawesome",
+      "page": "fontawesome",
+      "layout": "main"
+    },
+    {
+      "path": "/asdfasd",
+      "page": "asdfasd",
+      "layout": "main"
+    },
+    {
+      "path": "/summernote",
+      "page": "summernote",
+      "layout": "main"
+    },
+    {
+      "path": "/dart",
+      "page": "dartspacecraft",
+      "layout": "main"
+    },
+    {
+      "path": "/pickerbug",
+      "page": "pickerbug",
+      "layout": "main"
+    },
+    {
+      "path": "/inplaceedit",
+      "page": "inplaceedit",
+      "layout": "main"
+    },
+    {
+      "path": "/loginasdate",
+      "page": "loginasdate",
+      "layout": "main"
+    },
+    {
+      "path": "/sockets/emitter",
+      "page": "sockets/emitter",
+      "layout": "main"
+    },
+    {
+      "path": "/sockets/emitter2",
+      "page": "sockets/emitter2",
+      "layout": "main"
+    },
+    {
+      "path": "/logindemo/login",
+      "page": "logindemo/login",
+      "layout": "main"
+    },
+    {
+      "path": "/logindemo/showall",
+      "page": "logindemo/showall",
+      "layout": "main"
+    },
+    {
+      "path": "/admin/home",
+      "page": "admin/home",
+      "layout": "admin"
+    },
+    {
+      "path": "/freelancer/home",
+      "page": "freelancer/home",
+      "layout": "freelance"
+    },
+    {
+      "path": "/clients/home",
+      "page": "clients/home",
+      "layout": "clients"
+    },
+    {
+      "path": "/locations/home",
+      "page": "locations/home",
+      "layout": "locations"
+    },
+    {
+      "path": "/selecteventcheck",
+      "page": "selecteventcheck",
+      "layout": "main"
+    },
+    {
+      "path": "/multiupdate/multi",
+      "page": "multiupdate/multi",
+      "layout": "main"
+    },
+    {
+      "path": "/inplace-demo/inplace1",
+      "page": "inplace-demo/inplace1",
+      "layout": "main"
+    },
+    {
+      "path": "/inplace-demo/inplace2",
+      "layout": "main",
+      "page": "inplace-demo/inplace2"
+    },
+    {
+      "path": "/datastoresum",
+      "page": "datastoresum",
+      "layout": "main"
+    },
+    {
+      "path": "/hello-world",
+      "page": "hello-world",
+      "layout": "main"
+    },
+    {
+      "path": "/gpt",
+      "page": "gpt",
+      "layout": "main"
+    }
+  ],
+  "layouts": {
+    "admin": {
+      "exec": "/api/logindemo/secure_admin"
+    }
+  }
+}

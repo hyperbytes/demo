@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "$_GET": [
+      {
+        "type": "text",
+        "name": "sort"
+      },
+      {
+        "type": "text",
+        "name": "dir"
+      }
+    ]
+  },
+  "exec": {
+    "steps": {
+      "name": "query",
+      "module": "dbconnector",
+      "action": "select",
+      "options": {
+        "connection": "db",
+        "sql": {
+          "type": "SELECT",
+          "columns": [
+            {
+              "table": "books",
+              "column": "name"
+            }
+          ],
+          "table": {
+            "name": "books"
+          },
+          "primary": "id",
+          "joins": [],
+          "sub": {
+            "creators": {
+              "type": "SELECT",
+              "table": {
+                "name": "book_creators",
+                "alias": "creators"
+              },
+              "key": "book_id",
+              "columns": [
+                {
+                  "table": "authors",
+                  "column": "name"
+                }
+              ],
+              "joins": [
+                {
+                  "table": "authors",
+                  "column": "*",
+                  "type": "INNER",
+                  "clauses": {
+                    "condition": "AND",
+                    "rules": [
+                      {
+                        "table": "authors",
+                        "column": "id",
+                        "operator": "equal",
+                        "value": {
+                          "table": "creators",
+                          "column": "author_id",
+                          "type": "number"
+                        },
+                        "operation": "="
+                      }
+                    ]
+                  },
+                  "primary": "id"
+                }
+              ],
+              "query": "SELECT authors.name\nFROM book_creators AS creators\nINNER JOIN authors ON (authors.id = creators.author_id)",
+              "params": []
+            }
+          },
+          "query": "SELECT name\nFROM books",
+          "params": []
+        }
+      },
+      "output": true,
+      "meta": [
+        {
+          "type": "text",
+          "name": "name"
+        },
+        {
+          "name": "creators",
+          "type": "array",
+          "sub": [
+            {
+              "type": "text",
+              "name": "name"
+            }
+          ]
+        }
+      ],
+      "outputType": "array"
+    }
+  }
+}

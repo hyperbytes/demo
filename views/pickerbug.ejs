@@ -1,0 +1,24 @@
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="pickerbug" appConnect="local" components="{dmxBootstrap5TableGenerator:{}}" -->
+<meta name="ac:route" content="/pickerbug">
+<dmx-serverconnect id="serverconnect1" url="/api/forerrordemo"></dmx-serverconnect>
+<dmx-serverconnect id="serverconnect2" url="/api/forerrordemo_id" noload></dmx-serverconnect>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Creators</th>
+                    </tr>
+                </thead>
+                <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="serverconnect1.data.query" id="tableRepeat1">
+                    <tr>
+                        <td dmx-text="name" dmx-on:click=""></td>
+                        <td dmx-text="creators"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

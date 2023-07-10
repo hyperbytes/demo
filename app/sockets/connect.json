@@ -1,0 +1,31 @@
+[
+  {
+    "name": "identify",
+    "module": "sockets",
+    "action": "identify",
+    "options": {}
+  },
+  {
+    "name": "broadcast",
+    "module": "sockets",
+    "action": "broadcast",
+    "options": {
+      "eventName": "message",
+      "params": {
+        "message_text": "{{identify+' - A user has joined the site'}}"
+      }
+    }
+  },
+  {
+    "name": "msg",
+    "module": "sockets",
+    "action": "message",
+    "options": {
+      "socketId": "{{identify}}",
+      "eventName": "message",
+      "params": {
+        "message_text": "{{'Welcome - '+identify}}"
+      }
+    }
+  }
+]

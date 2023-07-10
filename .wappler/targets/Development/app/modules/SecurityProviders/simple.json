@@ -1,0 +1,68 @@
+{
+  "name": "simple",
+  "module": "auth",
+  "action": "provider",
+  "options": {
+    "secret": "1vRMN9LtyH5QUdU",
+    "provider": "Database",
+    "connection": "db",
+    "users": {
+      "table": "users",
+      "identity": "user_id",
+      "username": "email",
+      "password": "password"
+    },
+    "permissions": {
+      "Admin": {
+        "table": "role",
+        "identity": "user_id",
+        "conditions": [
+          {
+            "column": "role",
+            "operator": "=",
+            "value": "A"
+          }
+        ]
+      },
+      "Clients": {
+        "table": "role",
+        "identity": "user_id",
+        "conditions": [
+          {
+            "column": "role",
+            "operator": "=",
+            "value": "C"
+          }
+        ]
+      },
+      "Freelancer": {
+        "table": "role",
+        "identity": "user_id",
+        "conditions": [
+          {
+            "column": "role",
+            "operator": "=",
+            "value": "F"
+          }
+        ]
+      },
+      "Locations": {
+        "table": "role",
+        "identity": "user_id",
+        "conditions": [
+          {
+            "column": "role",
+            "operator": "=",
+            "value": "L"
+          }
+        ]
+      }
+    }
+  },
+  "meta": [
+    {
+      "name": "identity",
+      "type": "text"
+    }
+  ]
+}

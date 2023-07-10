@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "$_GET": [
+      {
+        "type": "text",
+        "name": "sort"
+      },
+      {
+        "type": "text",
+        "name": "dir"
+      }
+    ]
+  },
+  "exec": {
+    "steps": {
+      "name": "query",
+      "module": "dbconnector",
+      "action": "select",
+      "options": {
+        "connection": "db",
+        "sql": {
+          "type": "SELECT",
+          "columns": [
+            {
+              "table": "books",
+              "column": "*"
+            },
+            {
+              "table": "authors",
+              "column": "*"
+            }
+          ],
+          "table": {
+            "name": "books"
+          },
+          "primary": "book_id",
+          "joins": [
+            {
+              "table": "authors",
+              "column": "*",
+              "type": "RIGHT",
+              "clauses": {
+                "condition": "AND",
+                "rules": [
+                  {
+                    "table": "authors",
+                    "column": "author_id",
+                    "operator": "equal",
+                    "value": {
+                      "table": "books",
+                      "column": "author_id"
+                    },
+                    "operation": "="
+                  }
+                ]
+              },
+              "primary": "author_id"
+            }
+          ],
+          "query": "SELECT books.*, authors.*\nFROM books\nRIGHT JOIN authors ON (authors.author_id = books.author_id)",
+          "params": []
+        }
+      },
+      "output": true,
+      "meta": [
+        {
+          "type": "number",
+          "name": "book_id"
+        },
+        {
+          "type": "text",
+          "name": "title"
+        },
+        {
+          "type": "number",
+          "name": "author_id"
+        },
+        {
+          "type": "text",
+          "name": "author_name"
+        }
+      ],
+      "outputType": "array"
+    }
+  }
+}

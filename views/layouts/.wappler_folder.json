@@ -1,0 +1,20 @@
+{
+  "admin.ejs": {
+    "description": ""
+  },
+  "locations.ejs": {
+    "description": ""
+  },
+  "clients.ejs": {
+    "description": ""
+  },
+  "freelancers.ejs": {
+    "description": ""
+  },
+  "freelancer.ejs": {
+    "description": ""
+  },
+  "freelance.ejs": {
+    "description": ""
+  }
+}

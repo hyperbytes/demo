@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "$_SERVER": [
+      {
+        "type": "text",
+        "name": "REQUEST_URI"
+      },
+      {
+        "type": "text",
+        "name": "URL"
+      }
+    ]
+  },
+  "exec": {
+    "steps": [
+      {
+        "name": "RETURN",
+        "module": "core",
+        "action": "setvalue",
+        "options": {
+          "value": "{{$_SERVER.REQUEST_URI}}"
+        },
+        "meta": [],
+        "outputType": "text",
+        "output": true
+      },
+      {
+        "name": "URL",
+        "module": "core",
+        "action": "setvalue",
+        "options": {
+          "value": "{{$_SERVER.URL}}"
+        },
+        "meta": [],
+        "outputType": "text",
+        "output": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "security",
+  "module": "auth",
+  "action": "provider",
+  "options": {
+    "secret": "QjqMmTtCIMwKfpG",
+    "provider": "Database",
+    "connection": "db",
+    "users": {
+      "table": "lofintest",
+      "identity": "id",
+      "username": "username",
+      "password": "password"
+    },
+    "permissions": {
+      "user": {
+        "table": "lofintest",
+        "identity": "id",
+        "conditions": [
+          {
+            "column": "username",
+            "operator": "=",
+            "value": "U"
+          }
+        ]
+      }
+    }
+  },
+  "meta": [
+    {
+      "name": "identity",
+      "type": "text"
+    }
+  ]
+}

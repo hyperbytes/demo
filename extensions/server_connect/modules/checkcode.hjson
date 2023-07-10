@@ -1,0 +1,35 @@
+[
+  {
+  type: 'checkcode_gencode',
+  module : 'checkcode',
+  action : 'gencode',
+  groupTitle : 'Core Actions',
+  groupIcon : 'fas fa-lg fa-file comp-data',
+  title : 'Generate Checkcode',
+  icon : 'fas fa-lg fa-file comp-data',
+  dataPickObject: true,
+  dataScheme: [
+    {name: 'checkcode', type: 'text'}
+  ],
+  properties : [
+    {
+      group: 'Properties',
+      variables: [
+        { name: 'actionName', optionName: 'name', title: 'Name', 
+          type: 'text', required: true, defaultValue: 'checkcode1'},
+
+        { name: 'charstring', optionName: 'charstring', title: 'Characters to Use', 
+          type: 'text', required: true, defaultValue: '1234567890'},
+           
+        { name: 'charrepeats', optionName: 'charrepeats', title: 'No of times char can be repeated', 
+          type: 'number', required: true, defaultValue: '2'},
+
+          { name: 'codelen', optionName: 'codelen', title: 'Length of Code to return', 
+          type: 'number', required: true, defaultValue: '6'},
+          
+          { name: 'output', optionName: 'output', title: 'Output', type: 'boolean', defaultValue: false }.
+      ]
+    }
+  ]
+}
+]

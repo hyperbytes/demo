@@ -1,0 +1,13 @@
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="emitter2" appConnect="local" components="{dmxSockets:{},dmxNotifications:{}}" -->
+
+<dmx-notifications id="notifies1"></dmx-notifications>
+<dmx-socket id="socket1" dmx-on:message.message="notifies1.info($event.message_text)"></dmx-socket>
+<div class="container text-center">
+    <div class="row">
+        <div class="col">
+            <h1>Socket demo page 2</h1>
+            <p>Meetup Sockets demo</p><button id="btn1" class="btn btn-success" dmx-on:click="run({serverConnect:{url:'/api/emittest',site:'Node-testing',name:'sc'}})">Button</button>
+        </div>
+    </div>
+</div>
+<meta name="ac:route" content="/sockets/emitter2">

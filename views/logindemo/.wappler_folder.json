@@ -1,0 +1,10 @@
+{
+  "login.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "showall.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  }
+}

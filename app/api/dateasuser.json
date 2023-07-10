@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "$_POST": [
+      {
+        "type": "date",
+        "name": "username"
+      }
+    ]
+  },
+  "exec": {
+    "steps": [
+      {
+        "name": "username",
+        "module": "core",
+        "action": "setvalue",
+        "options": {
+          "value": "2022-10-03"
+        },
+        "meta": [],
+        "outputType": "date",
+        "output": true
+      },
+      {
+        "name": "password",
+        "module": "core",
+        "action": "setvalue",
+        "options": {
+          "value": "password"
+        },
+        "meta": [],
+        "outputType": "text",
+        "output": true
+      },
+      {
+        "name": "validate",
+        "module": "validator",
+        "action": "validate",
+        "options": {
+          "data": [
+            {
+              "name": "validate_1",
+              "value": "{{$_POST.username}}",
+              "rules": {
+                "db:notexists": {
+                  "param": {
+                    "connection": "db",
+                    "table": "lofintest",
+                    "column": "username"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "identity",
+        "module": "auth",
+        "action": "login",
+        "options": {
+          "provider": "security",
+          "remember": 0
+        },
+        "output": true,
+        "meta": []
+      }
+    ]
+  }
+}

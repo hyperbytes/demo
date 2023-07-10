@@ -1,0 +1,11 @@
+{
+  "name": "emit",
+  "module": "sockets",
+  "action": "emit",
+  "options": {
+    "eventName": "message",
+    "params": {
+      "message_text": "hello world"
+    }
+  }
+}

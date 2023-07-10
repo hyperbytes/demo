@@ -1,0 +1,19 @@
+[
+  {
+    "name": "identify",
+    "module": "sockets",
+    "action": "identify",
+    "options": {}
+  },
+  {
+    "name": "broadcast",
+    "module": "sockets",
+    "action": "broadcast",
+    "options": {
+      "eventName": "message",
+      "params": {
+        "message_text": "{{identify+' left the room'}}"
+      }
+    }
+  }
+]

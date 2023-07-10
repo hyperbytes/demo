@@ -1,0 +1,10 @@
+{
+  "home.ejs": {
+    "layoutPage": "locations",
+    "description": ""
+  },
+  "locations.ejs": {
+    "layoutPage": "locations",
+    "description": ""
+  }
+}

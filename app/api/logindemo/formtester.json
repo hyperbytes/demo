@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "$_GET": [
+      {
+        "type": "text",
+        "name": "sort"
+      },
+      {
+        "type": "text",
+        "name": "dir"
+      }
+    ]
+  },
+  "exec": {
+    "steps": {
+      "name": "query",
+      "module": "dbconnector",
+      "action": "select",
+      "options": {
+        "connection": "db",
+        "sql": {
+          "type": "SELECT",
+          "columns": [
+            {
+              "table": "users",
+              "column": "user_id"
+            },
+            {
+              "table": "users",
+              "column": "email"
+            },
+            {
+              "table": "role",
+              "column": "role"
+            }
+          ],
+          "table": {
+            "name": "users"
+          },
+          "primary": "user_id",
+          "joins": [
+            {
+              "table": "role",
+              "column": "*",
+              "type": "INNER",
+              "clauses": {
+                "condition": "AND",
+                "rules": [
+                  {
+                    "table": "role",
+                    "column": "user_id",
+                    "operator": "equal",
+                    "value": {
+                      "table": "users",
+                      "column": "user_id"
+                    },
+                    "operation": "="
+                  }
+                ]
+              },
+              "primary": "role_id"
+            }
+          ],
+          "query": "SELECT users.user_id, users.email, role.role\nFROM users\nINNER JOIN role ON (role.user_id = users.user_id)",
+          "params": []
+        }
+      },
+      "output": true,
+      "meta": [
+        {
+          "type": "number",
+          "name": "user_id"
+        },
+        {
+          "type": "text",
+          "name": "email"
+        },
+        {
+          "type": "text",
+          "name": "role"
+        }
+      ],
+      "outputType": "array"
+    }
+  }
+}

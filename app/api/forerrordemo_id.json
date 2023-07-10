@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "$_GET": [
+      {
+        "type": "text",
+        "name": "id"
+      }
+    ]
+  },
+  "exec": {
+    "steps": {
+      "name": "query",
+      "module": "dbconnector",
+      "action": "single",
+      "options": {
+        "connection": "db",
+        "sql": {
+          "type": "SELECT",
+          "columns": [
+            {
+              "table": "books",
+              "column": "*"
+            }
+          ],
+          "table": {
+            "name": "books"
+          },
+          "primary": "id",
+          "joins": [],
+          "wheres": {
+            "condition": "AND",
+            "rules": [
+              {
+                "id": "books.id",
+                "field": "books.id",
+                "type": "double",
+                "operator": "equal",
+                "value": "{{$_GET.id}}",
+                "data": {
+                  "table": "books",
+                  "column": "id",
+                  "type": "number",
+                  "columnObj": {
+                    "type": "increments",
+                    "primary": true,
+                    "unique": false,
+                    "nullable": false,
+                    "name": "id"
+                  }
+                },
+                "operation": "="
+              }
+            ],
+            "conditional": null,
+            "valid": true
+          },
+          "query": "SELECT *\nFROM books\nWHERE id = :P1 /* {{$_GET.id}} */",
+          "params": [
+            {
+              "operator": "equal",
+              "type": "expression",
+              "name": ":P1",
+              "value": "{{$_GET.id}}"
+            }
+          ]
+        }
+      },
+      "output": true,
+      "meta": [
+        {
+          "type": "number",
+          "name": "id"
+        },
+        {
+          "type": "text",
+          "name": "name"
+        },
+        {
+          "type": "number",
+          "name": "author_id"
+        }
+      ],
+      "outputType": "object"
+    }
+  }
+}

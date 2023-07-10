@@ -1,0 +1,97 @@
+{
+  "meta": {
+    "$_POST": [
+      {
+        "type": "text",
+        "name": "first_name"
+      },
+      {
+        "type": "text",
+        "name": "last_name"
+      },
+      {
+        "type": "text",
+        "name": "status"
+      }
+    ]
+  },
+  "exec": {
+    "steps": [
+      {
+        "name": "ipnhandshake",
+        "module": "ipn",
+        "action": "ipn",
+        "options": {},
+        "meta": [
+          {
+            "name": "status",
+            "type": "text"
+          }
+        ],
+        "output": true
+      },
+      {
+        "name": "insert",
+        "module": "dbupdater",
+        "action": "insert",
+        "options": {
+          "connection": "db",
+          "sql": {
+            "type": "insert",
+            "values": [
+              {
+                "table": "ipn",
+                "column": "last_name",
+                "type": "text",
+                "value": "{{$_POST.last_name}}"
+              },
+              {
+                "table": "ipn",
+                "column": "first_name",
+                "type": "text",
+                "value": "{{$_POST.first_name}}"
+              },
+              {
+                "table": "ipn",
+                "column": "status",
+                "type": "text",
+                "value": "{{'Status: '+ipnhandshake.status}}"
+              }
+            ],
+            "table": "ipn",
+            "returning": "id",
+            "query": "INSERT INTO ipn\n(last_name, first_name, status) VALUES (:P1 /* {{$_POST.last_name}} */, :P2 /* {{$_POST.first_name}} */, :P3 /* {{'Status: '+ipnhandshake.status}} */)",
+            "params": [
+              {
+                "name": ":P1",
+                "type": "expression",
+                "value": "{{$_POST.last_name}}"
+              },
+              {
+                "name": ":P2",
+                "type": "expression",
+                "value": "{{$_POST.first_name}}"
+              },
+              {
+                "name": ":P3",
+                "type": "expression",
+                "value": "{{'Status: '+ipnhandshake.status}}"
+              }
+            ]
+          }
+        },
+        "meta": [
+          {
+            "name": "identity",
+            "type": "text"
+          },
+          {
+            "name": "affected",
+            "type": "number"
+          }
+        ],
+        "output": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="inplace2" appConnect="local" components="{dmxBootstrap5TableGenerator:{}}" -->
+<meta name="ac:route" content="/inplace-demo/inplace1">
+<dmx-serverconnect id="conn_people" url="/api/inplace-demo/get_people"></dmx-serverconnect>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover table-sm">
+                    <thead>
+                        <tr>
+                            <th>Forename</th>
+                            <th>Surname</th>
+                        </tr>
+                    </thead>
+                    <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="conn_people.data.query" id="tableRepeat1">
+                        <form id="form1" is="dmx-serverconnect-form" method="post" action="/api/inplace-demo/update_both" class="d-flex" dmx-on:success="text3.setValue(0);conn_people.load()">
+                            <tr>
+                                <td>
+                                    <input id="text1" name="forename" type="text" class="form-control" dmx-bind:value="forename" dmx-on:changed="text6.setValue(1)"><input id="text2" name="id" type="hidden" class="form-control" dmx-bind:value="id"><input id="text3" name="dirty" type="hidden" class="form-control"><button id="btn1" class="btn btn-primary" dmx-show="text3.value==1" type="submit">Save</button>
+                                </td>
+                                <td>
+                                    <input id="text4" name="surname" type="text" class="form-control" dmx-bind:value="surname" dmx-on:changed="text6.setValue(1)"><input id="text5" name="id1" type="hidden" class="form-control" dmx-bind:value="id"><input id="text6" name="dirty1" type="hidden" class="form-control"><button id="btn2" class="btn btn-primary" dmx-show="text6.value==1" type="submit">Save</button>
+                                </td>
+                            </tr>
+
+
+
+                        </form>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

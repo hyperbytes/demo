@@ -1,0 +1,262 @@
+{
+  "meta": {
+    "$_POST": [
+      {
+        "type": "text",
+        "name": "question"
+      }
+    ]
+  },
+  "exec": {
+    "steps": {
+      "name": "api",
+      "module": "api",
+      "action": "send",
+      "options": {
+        "url": "https://api.openai.com/v1/engines/text-davinci-003/completions",
+        "headers": {
+          "Content_Type": "application/json",
+          "Authorization": "Bearer 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"
+        },
+        "data": {
+          "prompt": "{{$_POST.question}}",
+          "max_tokens": 2000,
+          "temperature": 0.9
+        },
+        "schema": [
+          {
+            "type": "object",
+            "name": "data",
+            "sub": [
+              {
+                "type": "text",
+                "name": "id"
+              },
+              {
+                "type": "text",
+                "name": "object"
+              },
+              {
+                "type": "number",
+                "name": "created"
+              },
+              {
+                "type": "text",
+                "name": "model"
+              },
+              {
+                "type": "array",
+                "name": "choices",
+                "sub": [
+                  {
+                    "type": "text",
+                    "name": "text"
+                  },
+                  {
+                    "type": "number",
+                    "name": "index"
+                  },
+                  {
+                    "type": "text",
+                    "name": "logprobs"
+                  },
+                  {
+                    "type": "text",
+                    "name": "finish_reason"
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "name": "usage",
+                "sub": [
+                  {
+                    "type": "number",
+                    "name": "prompt_tokens"
+                  },
+                  {
+                    "type": "number",
+                    "name": "completion_tokens"
+                  },
+                  {
+                    "type": "number",
+                    "name": "total_tokens"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "name": "headers",
+            "sub": [
+              {
+                "type": "text",
+                "name": "access-control-allow-origin"
+              },
+              {
+                "type": "text",
+                "name": "cache-control"
+              },
+              {
+                "type": "text",
+                "name": "content-length"
+              },
+              {
+                "type": "text",
+                "name": "content-type"
+              },
+              {
+                "type": "text",
+                "name": "date"
+              },
+              {
+                "type": "text",
+                "name": "openai-model"
+              },
+              {
+                "type": "text",
+                "name": "openai-organization"
+              },
+              {
+                "type": "text",
+                "name": "openai-processing-ms"
+              },
+              {
+                "type": "text",
+                "name": "openai-version"
+              },
+              {
+                "type": "text",
+                "name": "strict-transport-security"
+              },
+              {
+                "type": "text",
+                "name": "x-request-id"
+              }
+            ]
+          }
+        ],
+        "passErrors": false,
+        "method": "POST",
+        "dataType": "json"
+      },
+      "output": true,
+      "meta": [
+        {
+          "type": "object",
+          "name": "data",
+          "sub": [
+            {
+              "type": "text",
+              "name": "id"
+            },
+            {
+              "type": "text",
+              "name": "object"
+            },
+            {
+              "type": "number",
+              "name": "created"
+            },
+            {
+              "type": "text",
+              "name": "model"
+            },
+            {
+              "type": "array",
+              "name": "choices",
+              "sub": [
+                {
+                  "type": "text",
+                  "name": "text"
+                },
+                {
+                  "type": "number",
+                  "name": "index"
+                },
+                {
+                  "type": "text",
+                  "name": "logprobs"
+                },
+                {
+                  "type": "text",
+                  "name": "finish_reason"
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "name": "usage",
+              "sub": [
+                {
+                  "type": "number",
+                  "name": "prompt_tokens"
+                },
+                {
+                  "type": "number",
+                  "name": "completion_tokens"
+                },
+                {
+                  "type": "number",
+                  "name": "total_tokens"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "name": "headers",
+          "sub": [
+            {
+              "type": "text",
+              "name": "access-control-allow-origin"
+            },
+            {
+              "type": "text",
+              "name": "cache-control"
+            },
+            {
+              "type": "text",
+              "name": "content-length"
+            },
+            {
+              "type": "text",
+              "name": "content-type"
+            },
+            {
+              "type": "text",
+              "name": "date"
+            },
+            {
+              "type": "text",
+              "name": "openai-model"
+            },
+            {
+              "type": "text",
+              "name": "openai-organization"
+            },
+            {
+              "type": "text",
+              "name": "openai-processing-ms"
+            },
+            {
+              "type": "text",
+              "name": "openai-version"
+            },
+            {
+              "type": "text",
+              "name": "strict-transport-security"
+            },
+            {
+              "type": "text",
+              "name": "x-request-id"
+            }
+          ]
+        }
+      ],
+      "outputType": "object"
+    }
+  }
+}

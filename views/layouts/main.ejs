@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+<head>
+    <base href="/">
+    <script src="/dmxAppConnect/dmxAppConnect.js"></script>
+    <meta charset="UTF-8">
+    <title>My First Page</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/bootstrap/5/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="/dmxAppConnect/dmxRouting/dmxRouting.js" defer></script>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/dmxAppConnect/dmxFormatter/dmxFormatter.js" defer></script>
+    <link rel="stylesheet" href="/dmxAppConnect/dmxBootstrap5TableGenerator/dmxBootstrap5TableGenerator.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/summernote/dist/summernote-lite.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/summernote/dist/summernote-lite.min.js" defer></script>
+    <script src="/dmxAppConnect/dmxSummernote/dmxSummernote.js" defer></script>
+
+    <script src="/dmxAppConnect/dmxBootstrap5Modal/dmxBootstrap5Modal.js" defer></script>
+    <link rel="stylesheet" href="/dmxAppConnect/dmxNotifications/dmxNotifications.css" />
+    <script src="/dmxAppConnect/dmxNotifications/dmxNotifications.js" defer></script>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="/dmxAppConnect/dmxSockets/dmxSockets.js" defer></script>
+    <script src="/dmxAppConnect/dmxBrowser/dmxBrowser.js" defer></script>
+    <script src="/dmxAppConnect/dmxFormRepeat/dmxFormRepeat.js" defer></script>
+    <script src="/dmxAppConnect/dmxDataTraversal/dmxDataTraversal.js" defer></script>
+    <script src="/dmxAppConnect/dmxDatastore/dmxDatastore.js" defer></script>
+    <meta name="description" content="A demo page">
+    <meta property="og:title" content="My dempo page">
+    <link rel="stylesheet" href="/dmxAppConnect/dmxAnimateCSS/animate.min.css" />
+    <script src="/dmxAppConnect/dmxAnimateCSS/dmxAnimateCSS.js" defer></script>
+    <script src="/dmxAppConnect/dmxStateManagement/dmxStateManagement.js" defer></script>
+</head>
+
+<body is="dmx-app" id="main">
+    <div is="dmx-view" id="content">
+        <%- await include(content, locals); %>
+    </div>
+    <script src="/bootstrap/5/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

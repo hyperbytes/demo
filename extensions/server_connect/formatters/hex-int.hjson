@@ -1,0 +1,25 @@
+[
+{
+  type: 'method_hex2int',
+  groupTitle : 'Custom Formatters',
+  groupIcon : 'fa fa-lg fa-key',
+  addTitle: 'Hex to Int',
+  title : 'Hex to Int',
+  icon : 'fa fa-lg fa-hashtag',
+  state : 'opened',
+  help : 'converts hex to int'
+  
+}
+,
+{
+  type: 'method_int2hex',
+  groupTitle : 'Custom Formatters',
+  groupIcon : 'fa fa-lg fa-key',
+  addTitle: 'Int to hex',
+  title : 'Int to Hex',
+  icon : 'fa fa-lg fa-hashtag',
+  state : 'opened',
+  help : 'converts int to hex'
+  
+}
+]

@@ -1,0 +1,82 @@
+{
+  "retyu.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "responsivedemo.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "noappconnect.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "resposive.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "links.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "fontawesome.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "asdfasd.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "summernote.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "dartspacecraft.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "pickerbug.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "inplaceedit.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "loginasdate.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "admin.ejs": {
+    "layoutPage": "admin",
+    "description": ""
+  },
+  "clients.ejs": {
+    "layoutPage": "clients",
+    "description": ""
+  },
+  "freelancer.ejs": {
+    "layoutPage": "freelance",
+    "description": ""
+  },
+  "locations.ejs": {
+    "layoutPage": "admin",
+    "description": ""
+  },
+  "selecteventcheck.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "datastoresum.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "hello-world.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "gpt.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  }
+}

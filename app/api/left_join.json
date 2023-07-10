@@ -1,0 +1,105 @@
+{
+  "meta": {
+    "$_GET": [
+      {
+        "type": "text",
+        "name": "sort"
+      },
+      {
+        "type": "text",
+        "name": "dir"
+      }
+    ]
+  },
+  "exec": {
+    "steps": {
+      "name": "query",
+      "module": "dbconnector",
+      "action": "select",
+      "options": {
+        "connection": "db",
+        "sql": {
+          "type": "SELECT",
+          "columns": [
+            {
+              "table": "books",
+              "column": "*"
+            }
+          ],
+          "table": {
+            "name": "books"
+          },
+          "primary": "id",
+          "joins": [
+            {
+              "table": "authors",
+              "column": "*",
+              "type": "LEFT",
+              "clauses": {
+                "condition": "AND",
+                "rules": [
+                  {
+                    "table": "authors",
+                    "column": "id",
+                    "operator": "equal",
+                    "value": {
+                      "table": "books",
+                      "column": "id"
+                    },
+                    "operation": "="
+                  }
+                ]
+              },
+              "primary": "id"
+            }
+          ],
+          "query": "SELECT books.*\nFROM books\nLEFT JOIN authors ON (authors.id = books.id)\nWHERE authors.id IS NULL",
+          "params": [],
+          "wheres": {
+            "condition": "AND",
+            "rules": [
+              {
+                "id": "authors.id",
+                "field": "authors.id",
+                "type": "double",
+                "operator": "is_null",
+                "value": null,
+                "data": {
+                  "table": "authors",
+                  "column": "id",
+                  "type": "number",
+                  "columnObj": {
+                    "type": "increments",
+                    "primary": true,
+                    "unique": false,
+                    "nullable": false,
+                    "name": "id"
+                  }
+                },
+                "operation": "IS NULL"
+              }
+            ],
+            "conditional": null,
+            "valid": true
+          }
+        }
+      },
+      "output": true,
+      "meta": [
+        {
+          "type": "number",
+          "name": "id"
+        },
+        {
+          "type": "text",
+          "name": "name"
+        },
+        {
+          "type": "number",
+          "name": "author_id"
+        }
+      ],
+      "outputType": "array"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "",
+  "module": "auth",
+  "action": "restrict",
+  "options": {
+    "provider": "simple",
+    "permissions": [
+      "Admin"
+    ],
+    "loginUrl": "/logindemo/login",
+    "forbiddenUrl": "/logindemo/login"
+  }
+}

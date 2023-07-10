@@ -1,0 +1,10 @@
+{
+  "emitter.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "emitter2.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  }
+}

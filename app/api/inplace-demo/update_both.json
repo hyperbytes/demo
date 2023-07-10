@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "$_POST": [
+      {
+        "type": "text",
+        "name": "forename"
+      },
+      {
+        "type": "text",
+        "name": "surname"
+      },
+      {
+        "type": "number",
+        "name": "id"
+      }
+    ]
+  },
+  "exec": {
+    "steps": {
+      "name": "update",
+      "module": "dbupdater",
+      "action": "update",
+      "options": {
+        "connection": "db",
+        "sql": {
+          "type": "update",
+          "values": [
+            {
+              "table": "people",
+              "column": "forename",
+              "type": "text",
+              "value": "{{$_POST.forename}}"
+            },
+            {
+              "table": "people",
+              "column": "surname",
+              "type": "text",
+              "value": "{{$_POST.surname}}"
+            }
+          ],
+          "table": "people",
+          "wheres": {
+            "condition": "AND",
+            "rules": [
+              {
+                "id": "id",
+                "type": "double",
+                "operator": "equal",
+                "value": "{{$_POST.id}}",
+                "data": {
+                  "column": "id"
+                },
+                "operation": "="
+              }
+            ]
+          },
+          "returning": "id",
+          "query": "UPDATE people\nSET forename = :P1 /* {{$_POST.forename}} */, surname = :P2 /* {{$_POST.surname}} */\nWHERE id = :P3 /* {{$_POST.id}} */",
+          "params": [
+            {
+              "name": ":P1",
+              "type": "expression",
+              "value": "{{$_POST.forename}}",
+              "test": ""
+            },
+            {
+              "name": ":P2",
+              "type": "expression",
+              "value": "{{$_POST.surname}}",
+              "test": ""
+            },
+            {
+              "operator": "equal",
+              "type": "expression",
+              "name": ":P3",
+              "value": "{{$_POST.id}}",
+              "test": ""
+            }
+          ]
+        }
+      },
+      "meta": [
+        {
+          "name": "affected",
+          "type": "number"
+        }
+      ]
+    }
+  }
+}

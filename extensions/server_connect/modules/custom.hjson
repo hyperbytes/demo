@@ -1,0 +1,81 @@
+[
+    {
+    type: 'UID_GetUUID',
+    module : 'UID',
+    action : 'GetUUID',
+    groupTitle : 'Core Actions',
+    groupIcon : 'fas fa-lg fa-cube comp-flows',
+    title : 'UUID @@var(actionName)@@',
+    icon : 'fas fa-lg fa-fingerprint comp-flows',
+    dataPickObject: true,
+    properties : [
+      {
+        group: 'Properties'
+        variables: [
+          { name: 'actionName', optionName: 'name', title: 'Name', type: 'text', required: true, defaultValue: ''},
+          { name: 'output', optionName: 'output', title: 'Output', type: 'boolean', defaultValue: true}
+        ]
+      }
+    ]
+  },
+
+  {
+    type: 'getIcalx',
+    module : 'getIcalx',
+    action : 'getIcalx',
+    groupTitle : 'Core Actions',
+    groupIcon : 'fas fa-lg fa-cube comp-flows',
+    title : 'getIcalx',
+    icon : 'fas fa-lg fa-calendar comp-flows',
+    dataPickObject: true,
+    properties : [
+      {
+        group: 'Properties'
+        variables: [
+           { name: 'icspath', optionName: 'icspath', title: 'Web Path to .ics file', type: 'text',required: true, defaultValue: false },
+           { name: 'output', optionName: 'output', title: 'Output', type: 'boolean', defaultValue: false }
+        ]
+      }
+    ]
+  }
+      
+ {
+    type: 'icaltojsonx',
+    module : 'icaltojsonx',
+    action : 'icaltojsonx',
+    groupTitle : 'Core Actions',
+    groupIcon : 'fas fa-lg fa-cube comp-flows',
+    title : 'icaltojsonx',
+    icon : 'fas fa-lg fa-calendar comp-flows',
+    dataPickObject: true,
+    properties : [
+      {
+        group: 'Properties'
+        variables: [
+           { name: 'icspathx', optionName: 'icspathx', title: 'Path to local .ics file', type: 'text',required: true, defaultValue: false },
+           { name: 'output', optionName: 'output', title: 'Output', type: 'boolean', defaultValue: false }
+        ]
+      }
+    ]
+  }
+
+  {
+    type: 'parseics',
+    module : 'parseics',
+    action : 'parseics',
+    groupTitle : 'Core Actions',
+    groupIcon : 'fas fa-lg fa-cube comp-flows',
+    title : 'parseics',
+    icon : 'fas fa-lg fa-calendar comp-flows',
+    dataPickObject: true,
+    properties : [
+      {
+        group: 'Properties'
+        variables: [
+           { name: 'icspathx', optionName: 'icspathx', title: 'Path to local .ics file', type: 'text',required: true, defaultValue: false },
+           { name: 'output', optionName: 'output', title: 'Output', type: 'boolean', defaultValue: false }
+        ]
+      }
+    ]
+  }
+]

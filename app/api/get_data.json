@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "$_GET": [
+      {
+        "type": "text",
+        "name": "sort"
+      },
+      {
+        "type": "text",
+        "name": "dir"
+      }
+    ]
+  },
+  "exec": {
+    "steps": {
+      "name": "query",
+      "module": "dbconnector",
+      "action": "select",
+      "options": {
+        "connection": "db",
+        "sql": {
+          "type": "SELECT",
+          "columns": [
+            {
+              "table": "ipn",
+              "column": "*"
+            }
+          ],
+          "table": {
+            "name": "ipn"
+          },
+          "primary": "id",
+          "joins": [],
+          "query": "SELECT *\nFROM ipn",
+          "params": []
+        }
+      },
+      "output": true,
+      "meta": [
+        {
+          "type": "number",
+          "name": "id"
+        },
+        {
+          "type": "text",
+          "name": "last_name"
+        },
+        {
+          "type": "text",
+          "name": "first_name"
+        },
+        {
+          "type": "text",
+          "name": "status"
+        }
+      ],
+      "outputType": "array"
+    }
+  }
+}

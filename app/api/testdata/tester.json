@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "$_POST": [
+      {
+        "type": "text",
+        "multiple": true,
+        "name": "Ivs"
+      }
+    ]
+  },
+  "exec": {
+    "steps": [
+      {
+        "name": "mydata",
+        "module": "core",
+        "action": "setvalue",
+        "options": {
+          "value": "{{$_POST.Ivs.parseJSON()}}"
+        },
+        "meta": [],
+        "output": true,
+        "outputType": "text"
+      },
+      {
+        "name": "text",
+        "module": "tester",
+        "action": "tester",
+        "options": {},
+        "meta": [
+          {
+            "name": "status",
+            "type": "text"
+          }
+        ],
+        "output": true
+      }
+    ]
+  }
+}
